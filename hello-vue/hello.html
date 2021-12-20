@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:v-on="http://www.w3.org/1999/xhtml" xmlns:v-bind="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+<!--    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>-->
+<!--    <script src="https://cdn.jsdelivr.net/npm/vue"></script>-->
+</head>
+<body>
+<center>
+    <div>
+        <video id="pc-video" muted="muted" autoplay="autoplay" loop="loop" playsinline="playsinline" webkit-playsinline="webkit-playsinline" x5-playsinline="x5-playsinline" poster="https://overwatch.nosdn.127.net/1/assets/img/pages/home/header-video-poster.jpg">
+            <source src="https://overwatch.nosdn.127.net/1/assets/img/pages/home/anniversary/header.webm" type="video/webm">
+            <source src="https://overwatch.nosdn.127.net/1/assets/img/pages/home/anniversary/header.mp4" type="video/mp4">
+        </video>
+    </div>
+
+<div id="app">
+    <input type="text" v-model="num">
+    <button v-on:click="num++">点我</button>
+    <h2>{{name}}买{{num}}辆兰博基尼!!!</h2>
+
+    <input type="checkbox" v-model="language" value="无尽之刃">无尽之刃<br/><br/>
+    <input type="checkbox" v-model="language" value="不朽盾弓">不朽盾弓<br/><br/>
+    <input type="checkbox" v-model="language" value="死亡之舞">死亡之舞<br/><br/>
+    你选择了:{{language.join(',')}}
+    <div v-bind:style="{color: color}">钱钱钱钱钱1</div>
+    <div :style="{color: color}">钱钱钱钱钱2</div>
+
+</div>
+    <div id="cc">
+    <table border="1" cellpadding="0" cellspacing="0" width="300px" height="50px">
+        <tr>
+            <th>序号</th>
+            <th>年龄</th>
+            <th>性别</th>
+            <th>年龄</th>
+        </tr>
+        <tr v-for="(user,index) in users">
+            <td>{{index+1>9?index+1:'0'+(index+1)}}</td>
+            <td>{{user.name}}</td>
+            <td>{{user.g}}</td>
+            <td>{{user.age}}</td>
+        </tr>
+    </table>
+</div>
+</center>
+</body>
+
+
+<script src="node_modules/vue/dist/vue.js"></script>
+<script type="text/javascript">
+    var cc=new Vue({
+        el:"#cc",
+        data:{
+            users:[
+                {name:'亚索',g:'男',age:'21'},
+                {name:'亚索',g:'男',age:'21'},
+                {name:'亚索',g:'男',age:'21'},
+                {name:'亚索',g:'男',age:'21'},
+                {name:'亚索',g:'男',age:'21'},
+                {name:'亚索',g:'男',age:'21'},
+                {name:'亚索',g:'男',age:'21'},
+                {name:'亚索',g:'男',age:'21'},
+                {name:'亚索',g:'男',age:'21'},
+                {name:'亚索',g:'男',age:'21'},
+                {name:'亚索',g:'男',age:'21'},
+                {name:'亚索',g:'男',age:'21'}
+            ]
+        }
+    });
+</script>
+<script>
+    var app=new Vue({
+        el:"#app",
+        data:{
+            name:"施泓丞",
+            num:100,
+            language:[],
+            color:'green'
+        }
+    });
+</script>
+</html>

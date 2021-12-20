@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+</head>
+<body>
+<center>
+
+
+    <div id="app">
+      <span><router-link to="/login">登录</router-link></span>
+      <span><router-link to="/register">注册</router-link></span>
+        <hr/>
+        <div>
+            <router-view></router-view>
+        </div>
+    </div>
+
+
+    <div>
+        <video id="pc-video" muted="muted" autoplay="autoplay" loop="loop" playsinline="playsinline" webkit-playsinline="webkit-playsinline" x5-playsinline="x5-playsinline" poster="https://overwatch.nosdn.127.net/1/assets/img/pages/home/header-video-poster.jpg">
+            <source src="https://overwatch.nosdn.127.net/1/assets/img/pages/home/anniversary/header.webm" type="video/webm">
+            <source src="https://overwatch.nosdn.127.net/1/assets/img/pages/home/anniversary/header.mp4" type="video/mp4">
+        </video>
+    </div>
+</center>
+</body>
+<script src="../node_modules/vue/dist/vue.js"></script>
+<script src="../node_modules/vue-router/dist/vue-router.js"></script>
+<script src="user/login.js"></script>
+<script src="user/register.js"></script>
+<script type="text/javascript">
+
+    //创建VueRouter对象
+    const router = new VueRouter({
+        routes:[ // 编写路由规则
+            {
+                path:"/login", // 请求路径，以“/”开头
+                component:login // 组件名称
+            },
+            {
+                path:"/register",
+                component:regist
+            },
+
+        ]
+    });
+    var vm=new Vue({
+        el:"#app",
+        components:{
+            login,
+            regist
+
+        },
+        router
+    })
+</script>
+</html>
